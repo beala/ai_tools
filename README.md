@@ -74,7 +74,7 @@ options:
   --chunk_size CHUNK_SIZE
                         Chunk size. Defaults to 4,096.
   --separator SEPARATOR
-                        Separator to use when joining chunks. Defaults to newline.
+                        Separator to use when joining chunks. Defaults to two newlines.
   --json                Output as JSON.
   --overlap OVERLAP     Overlap between chunks. Defaults to 0.
 

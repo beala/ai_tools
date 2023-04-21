@@ -16,8 +16,8 @@ if __name__ == "__main__":
     parser.add_argument("--encoding", type=str, help="Encoding to use. See: https://github.com/openai/tiktoken/blob/46287bfa493f8ccca4d927386d7ea9cc20487525/tiktoken/model.py#L6-L53")
     parser.add_argument("--model", type=str, help="Model to use. Overrides --encoding. See: https://github.com/openai/tiktoken/blob/46287bfa493f8ccca4d927386d7ea9cc20487525/tiktoken/model.py#L6-L53")
     parser.add_argument("--chunk_size", type=int, default=4096, help="Chunk size. Defaults to 4096.")
-    parser.add_argument("--separator", type=str, default="\n", help="Separator to use when joining chunks. Defaults "
-                                                                    "to newline.")
+    parser.add_argument("--separator", type=str, default="\n\n", help="Separator to use when joining chunks. Defaults "
+                                                                    "to two newlines.")
     parser.add_argument("--json", action="store_true", help="Output as JSON.")
     parser.add_argument("--overlap", type=int, default=0, help="Overlap between chunks. Defaults to 0.")
     args = parser.parse_args()
@@ -52,6 +52,6 @@ if __name__ == "__main__":
     else:
         if args.separator:
             sep = codecs.decode(args.separator, "unicode_escape")
-            print(sep.join(output))
+            print(sep.join(output), end="")
         else:
             pprint(output)
