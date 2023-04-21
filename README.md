@@ -2,12 +2,16 @@
 
 This script allows you to transcribe podcast episodes from Overcast.fm using OpenAI's GPT-4. The resulting transcript is printed to stdout.
 
-## Dependencies
+## Setup
 Install the required dependencies using:
 
 ```
 pip install -r requirements.txt
 ```
+
+Do one of the following with your OpenAI API key:
+- Set the `OPENAI_API_KEY` environment variable to your OpenAI API key.
+- Store it to a file called `OPENAI_API_KEY` in the same directory as `transcribe_podcast.py`.
 
 ## Usage
 

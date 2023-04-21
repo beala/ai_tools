@@ -9,7 +9,7 @@ def openai_api_key() -> str:
     if openai.api_key:
         return openai.api_key
     script_path = os.path.dirname(os.path.realpath(__file__))
-    return Path(script_path, "OPENAI_KEY").read_text().strip()
+    return Path(script_path, "OPENAI_API_KEY").read_text().strip()
 
 
 SILENT = False
