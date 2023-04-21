@@ -1,3 +1,5 @@
+This repo contains scripts and tools that are useful for interacting with OpenAI APIs.
+
 # transcribe_podcast.py
 
 This script allows you to transcribe podcast episodes from Overcast.fm using OpenAI's GPT-4. The resulting transcript is printed to stdout.
