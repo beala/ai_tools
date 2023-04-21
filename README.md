@@ -2,7 +2,7 @@ This repo contains scripts and tools that are useful for interacting with OpenAI
 
 # transcribe_podcast.py
 
-This script allows you to transcribe podcast episodes from Overcast.fm using OpenAI's GPT-4. The resulting transcript is printed to stdout.
+This script allows you to transcribe podcast episodes from Overcast.fm using OpenAI's Whisper model. The resulting transcript is printed to stdout.
 
 ## Setup
 Install the required dependencies using:
