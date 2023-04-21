@@ -1,6 +1,6 @@
 # transcribe_podcast.py
 
-This script allows you to transcribe podcast episodes from Overcast.fm using OpenAI's GPT-4. The resulting transcript can be saved to an output file or printed to stdout.
+This script allows you to transcribe podcast episodes from Overcast.fm using OpenAI's GPT-4. The resulting transcript is printed to stdout.
 
 ## Dependencies
 Install the required dependencies using:
@@ -19,7 +19,6 @@ positional arguments:
 
 options:
   -h, --help       show this help message and exit
-  --output OUTPUT  Output file to write transcript to. Otherwise, prints to stdout.
   --tmp TMP        Temporary directory to use for downloading and chunking audio. Defaults to a new temporary directory.
   --preserve       Preserve temporary directory after running. Defaults to False.
   --silent         Silence all status updates. Defaults to False.
@@ -31,21 +30,13 @@ options:
 
 - `OVERCAST_LINK`: The Overcast link to the podcast episode you want to transcribe (e.g., https://overcast.fm/+YsPQCIdOs).
 
-### Options
-
-- `--output`: The output file to write the transcript to. If not provided, the transcript will be printed to stdout.
-- `--tmp`: The temporary directory to use for downloading and chunking audio. If not provided, a new temporary directory will be created.
-- `--preserve`: Keep the temporary directory after running. By default, the temporary directory will be removed.
-- `--silent`: Silence all status updates. By default, status updates will be printed.
-- `--dry_run`: Don't actually query OpenAI. Useful for debugging. By default, OpenAI will be queried.
-
 ## Example
 
 ```
-python transcribe_podcast.py https://overcast.fm/+YsPQCIdOs --output transcript.txt
+python transcribe_podcast.py https://overcast.fm/+YsPQCIdOs
 ```
 
-This will transcribe the podcast episode from the provided Overcast link and save the transcript to a file named `transcript.txt`.
+This will transcribe the podcast episode from the provided Overcast link and print it to stdout.
 
 # chunk.py
 
