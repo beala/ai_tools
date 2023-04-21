@@ -30,10 +30,6 @@ options:
 
 ```
 
-### Arguments
-
-- `OVERCAST_LINK`: The Overcast link to the podcast episode you want to transcribe (e.g., https://overcast.fm/+YsPQCIdOs).
-
 ## Example
 
 ```
@@ -44,17 +40,17 @@ This will transcribe the podcast episode from the provided Overcast link and pri
 
 # chunk.py
 
-This script encodes and chunks text using TikToken encodings, which are useful for processing large text files that need to be divided into smaller pieces. This can be helpful when working with APIs that have token or character limits.
+This script encodes and chunks text using TikToken encodings, which are useful for processing large text files that need to be divided into smaller pieces. This can be helpful when working with APIs that have token limits.
 
 See the OpenAI docs for token limits: https://platform.openai.com/docs/models/gpt-3-5
 
-## Features
+## Setup
 
-- Read input from file or standard input (stdin)
-- Supports various encodings provided by TikToken
-- Customizable chunk size and overlap between chunks
-- Output in JSON format or plain text with a custom separator
-- Select encoding based on model name
+Install the required dependencies using:
+
+```
+pip install -r requirements.txt
+```
 
 ## Usage
 
@@ -82,11 +78,3 @@ python chunk.py --file input.txt --model gpt-3.5-turbo --chunk_size 1024 --separ
 ```
 
 This command will read the input from `input.txt`, divide it into chunks of 1024 tokens with no overlap, and output the result separated by two newline characters.
-
-## Dependencies
-
-Install the required dependencies using:
-
-```
-pip install -r requirements.txt
-```
