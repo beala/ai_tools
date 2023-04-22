@@ -23,10 +23,10 @@ def chunk(text, chunk_size, overlap, model=None, encoding=None) -> List[str]:
     encoded = encoding.encode(text)
 
     output = []
-    overlap = chunk_size - (2 * overlap)
-    if overlap <= 0:
+    chunk_size = chunk_size - (2 * overlap)
+    if chunk_size <= 0:
         raise Exception("Overlap * 2 must be less than chunk size.")
-    for i in range(0, len(encoded), overlap):
+    for i in range(0, len(encoded), chunk_size):
         start = max(0, i - overlap)
         end = min(len(encoded), i + chunk_size + overlap)
         encoded_chunk = encoded[start:end]

@@ -26,12 +26,12 @@ def download_audio(url, tmp_dir):
     soup = BeautifulSoup(response.text, "html.parser")
     audio_url = soup.find("source", {"type": "audio/mpeg"})["src"]
     p("Found audio URL:", audio_url)
-    audio_data = requests.get(audio_url)
     filename = os.path.join(tmp_dir, "podcast.mp3")
     p(f"Downloading audio to {filename}... ", end="", flush=True)
+    audio_data = requests.get(audio_url)
+    p("✅")
     with open(filename, "wb") as f:
         f.write(audio_data.content)
-    p("✅")
     return filename
 
 

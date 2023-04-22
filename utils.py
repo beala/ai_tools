@@ -19,3 +19,10 @@ def p(*args, **kwargs):
         kwargs["file"] = sys.stderr
     if not SILENT:
         print(*args, **kwargs)
+
+
+def chat(*args, **kwargs):
+    resp = openai.ChatCompletion.create(
+        *args, **kwargs
+    )
+    return resp['choices'][0]['message']['content']
