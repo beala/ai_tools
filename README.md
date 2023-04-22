@@ -1,5 +1,41 @@
 This repo contains scripts and tools that are useful for interacting with OpenAI APIs.
 
+# summarize.py
+
+This script is a command-line tool that generates summaries of podcast transcripts. It utilizes OpenAI's GPT-3.5-turbo and GPT-4 models to create bullet-point summaries of each chunk of the transcript, and then combines them into a final summary with a tl;dr and a longer paragraph-long summary.
+
+# Usage
+
+```
+usage: summarize.py [-h] [--dry_run] [--model MODEL]
+
+options:
+  -h, --help     show this help message and exit
+  --dry_run      Don't actually run the model.
+  --model MODEL  Model to use. Defaults to gpt-3.5-turbo.
+```
+
+# Example
+
+End-to-end example of summarizing a podcast starting with an overcast.fm URL:
+```
+python transcribe_podcast.py "https://overcast.fm/+3zmGHCa50" |\
+    tee 80k_after_hours_free_will.txt |\
+    python summarize.py |\
+    tee 80k_after_hours_free_will_summary.txt |\
+    less
+```
+
+Screen recording: https://asciinema.org/a/vsRu7X7qqVqHCXd94qMPDxvTl
+Output: https://gist.github.com/beala/14f8371065c4619cb6c0bff33d39d5dd
+
+# How it works
+1. The script reads the input transcript from stdin.
+2. The transcript is split into chunks based on the model's token limit, leaving room for the generated response and prompts.
+3. For each chunk, the script generates a bullet-point summary using the GPT-3.5-turbo model (or another specified model) by sending it a prompt.
+4. The summaries of each chunk are combined, and a final summary is generated using the GPT-4 model.
+5. The final summary, formatted as a tl;dr followed by a longer paragraph-long summary, is printed to the console.
+
 # transcribe_podcast.py
 
 This script allows you to transcribe podcast episodes from Overcast.fm using OpenAI's Whisper model. The resulting transcript is printed to stdout.
