@@ -1,5 +1,16 @@
 This repo contains scripts and tools that are useful for interacting with OpenAI APIs.
 
+# Setup
+Most of these scripts require the following set up. Install the required dependencies using:
+
+```
+pip install -r requirements.txt
+```
+
+Do one of the following with your OpenAI API key:
+- Set the `OPENAI_API_KEY` environment variable to your OpenAI API key.
+- Store it to a file called `OPENAI_API_KEY` in the same directory as `transcribe_podcast.py`.
+
 # summarize.py
 
 This script is a command-line tool that generates summaries of podcast transcripts. It utilizes OpenAI's GPT-3.5-turbo and GPT-4 models to create bullet-point summaries of each chunk of the transcript, and then combines them into a final summary with a tl;dr and a longer paragraph-long summary.
@@ -46,17 +57,6 @@ Output: https://gist.github.com/beala/14f8371065c4619cb6c0bff33d39d5dd
 
 This script allows you to transcribe podcast episodes from Overcast.fm using OpenAI's Whisper model. The resulting transcript is printed to stdout.
 
-## Setup
-Install the required dependencies using:
-
-```
-pip install -r requirements.txt
-```
-
-Do one of the following with your OpenAI API key:
-- Set the `OPENAI_API_KEY` environment variable to your OpenAI API key.
-- Store it to a file called `OPENAI_API_KEY` in the same directory as `transcribe_podcast.py`.
-
 ## Usage
 
 ```
@@ -87,14 +87,6 @@ This will transcribe the podcast episode from the provided Overcast link and pri
 This script encodes and chunks text using TikToken encodings, which are useful for processing large text files that need to be divided into smaller pieces. This can be helpful when working with APIs that have token limits.
 
 See the OpenAI docs for token limits: https://platform.openai.com/docs/models/gpt-3-5
-
-## Setup
-
-Install the required dependencies using:
-
-```
-pip install -r requirements.txt
-```
 
 ## Usage
 
