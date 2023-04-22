@@ -29,15 +29,6 @@ if __name__ == "__main__":
     max_chunk_size = 4096 if args.model == "gpt-3.5-turbo" else 8192
     max_chunk_size -= 2000 # Leave room for response, prompt, etc.
 
-    first_system_prompt = "Your task is to summarize podcasts from transcripts. Before giving you the transcript, " \
-                          "I've divided it up into chunks. This is the first chunk from the transcript. Summarize as " \
-                          "a list of bullet points about the main topics and ideas."
-    consecutive_system_prompt = "Your task is to summarize podcasts from transcripts. Before giving you the " \
-                                "transcript, I've divided it up into chunks. This chunk comes from where in the " \
-                                "middle of the podcast, so I've also provided you with a summary of the previous " \
-                                "chunks. Please continue the summary. Summarize as a list of bullet points about the " \
-                                "main topics and ideas."
-
     first_prompt = """
 
 ---
