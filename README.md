@@ -3,7 +3,7 @@ This repo contains scripts and tools that are useful for interacting with OpenAI
 # Setup
 Most of these scripts require the following set up. Install the required dependencies using:
 
-```
+```shell
 pip install -r requirements.txt
 ```
 
@@ -29,7 +29,7 @@ options:
 ## Example
 
 End-to-end example of summarizing a podcast starting with an overcast.fm URL:
-```
+```shell
 python transcribe_podcast.py "https://overcast.fm/+3zmGHCa50" |\
     tee 80k_after_hours_free_will.txt |\
     python summarize.py |\
@@ -78,7 +78,7 @@ options:
 
 ## Example
 
-```
+```shell
 python transcribe_podcast.py https://overcast.fm/+YsPQCIdOs
 ```
 
@@ -111,8 +111,16 @@ options:
 
 ## Example
 
-```
+```shell
 python chunk.py --file input.txt --model gpt-3.5-turbo --chunk_size 1024 --separator "\n\n"
 ```
 
 This command will read the input from `input.txt`, divide it into chunks of 1024 tokens with no overlap, and output the result separated by two newline characters.
+
+# submit_file.py
+
+Submit the contents of a file to a chat API. This is useful for quickly submitting to gpt-4 or gpt-4-32k.
+
+```shell
+python submit_file.py --model gpt-4-32k < input.txt 
+```
